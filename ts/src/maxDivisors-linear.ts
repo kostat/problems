@@ -1,22 +1,23 @@
-type Primes = Map<number, number>;
-type Data = Primes[];
+type Data = number[][];
 
 function fillPrimeStats(prime: number, data: Data) {
+  const cache: number[] = [];
   for (var i = 1; ; i++) {
     const n = i * prime;
     if (n > data.length) break;
 
-    const m = data[n - 1] ??= new Map();
+    const m = (data[n - 1] ??= []);
     var value = 1;
     if (i % prime === 0) {
-        value += data[i - 1].get(prime)!;
+      value += cache[i / prime - 1]!;
     }
-    m.set(prime, value);
+    cache.push(value);
+    m.push(value);
   }
 }
 
-function computeNumOfDivisors(primeStats: IterableIterator<number>) {
-  return [...primeStats].reduce((a, b) => a * (b + 1), 1);
+function computeNumOfDivisors(primeStats: number[]) {
+  return primeStats.reduce((a, b) => a * (b + 1), 1);
 }
 
 export function findMaxDivisors(max: number) {
@@ -29,7 +30,7 @@ export function findMaxDivisors(max: number) {
     if (!stats) {
       fillPrimeStats(n, data);
     } else {
-      var numDivisors = computeNumOfDivisors(stats.values());
+      var numDivisors = computeNumOfDivisors(stats);
       if (numDivisors > maxDivisors) {
         result = n;
         maxDivisors = numDivisors;
