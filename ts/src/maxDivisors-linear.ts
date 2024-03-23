@@ -15,27 +15,27 @@ function fillPrimeStats(prime: number, data: Data) {
   }
 }
 
-function computeNumOfDividers(primeStats: IterableIterator<number>) {
+function computeNumOfDivisors(primeStats: IterableIterator<number>) {
   return [...primeStats].reduce((a, b) => a * (b + 1), 1);
 }
 
-export function findMaxDividers(max: number) {
+export function findMaxDivisors(max: number) {
   const data: Data = new Array(max);
   var result = 1;
-  var maxDividers = 1;
+  var maxDivisors = 1;
 
   for (var n = 2; n <= max; n++) {
     var stats = data[n - 1];
     if (!stats) {
       fillPrimeStats(n, data);
     } else {
-      var numDividers = computeNumOfDividers(stats.values());
-      if (numDividers > maxDividers) {
+      var numDivisors = computeNumOfDivisors(stats.values());
+      if (numDivisors > maxDivisors) {
         result = n;
-        maxDividers = numDividers;
+        maxDivisors = numDivisors;
       }
     }
   }
 
-  return [result, maxDividers];
+  return [result, maxDivisors];
 }

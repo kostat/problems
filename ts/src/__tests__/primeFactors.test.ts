@@ -1,8 +1,8 @@
-import { primeDivisors } from "../primeDivisors";
+import { primeFactors } from "../primeFactors";
 
 describe("find prime divisors", () => {
   it("success 1260", () => {
-    const result = primeDivisors(1260);
+    const result = primeFactors(1260);
     //   console.info(`${result}`);
     expect(result).toEqual(
       new Map([

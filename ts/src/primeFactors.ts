@@ -1,4 +1,4 @@
-export function primeDivisors(n: number) {
+export function primeFactors(n: number) {
   var result = new Map<number, number>();
   var times = 0;
 

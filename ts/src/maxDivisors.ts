@@ -1,4 +1,4 @@
-function numOfDividers(n: number) {
+function numOfDivisors(n: number) {
     var result = 0;
   
     for (var i = 1; i <= n; i++) {
@@ -8,17 +8,17 @@ function numOfDividers(n: number) {
     return result;
   }
   
-  export function findMaxDividers(max: number) {
+  export function findMaxDivisors(max: number) {
     var result = 0;
-    var dividers = 0;
+    var divisors = 0;
   
     for (var i = 1; i <= max; i++) {
-      const n = numOfDividers(i);
-      if (n > dividers) {
-        dividers = n;
+      const n = numOfDivisors(i);
+      if (n > divisors) {
+        divisors = n;
         result = i;
       }
     }
   
-    return [result, dividers];
+    return [result, divisors];
   }

@@ -1,4 +1,4 @@
-import { findMaxDivisors } from "../maxDivisors";
+import { findMaxDivisors } from "../maxDivisors-linear";
 
 describe("find max divisors", () => {
   it("success 1", () => {
@@ -21,13 +21,13 @@ describe("find max divisors", () => {
     console.info(`${result}:${maxDivisors}`);
   });
 
-  // it("success 1000000", () => {
-  //   const [result, maxDivisors] = findmaxDivisors(1000000);
-  //   console.info(`${result}:${maxDivisors}`);
-  // });
+  it("success 1000000", () => {
+    const [result, maxDivisors] = findMaxDivisors(1000000);
+    console.info(`${result}:${maxDivisors}`);
+  });
 
-  // it("success 10000000", () => {
-  //   const [result, maxDivisors] = findmaxDivisors(10000000);
-  //   console.info(`${result}:${maxDivisors}`);
-  // });
+  it("success 10000000", () => {
+    const [result, maxDivisors] = findMaxDivisors(10000000);
+    console.info(`${result}:${maxDivisors}`);
+  });
 });
