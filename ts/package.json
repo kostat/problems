@@ -1,0 +1,28 @@
+{
+    "name": "aws-lambda-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.ts",
+    "scripts": {
+        "watch": "tsc -w",
+        "build": "tsc",
+        "test": "ENV_FILE=./config/.env.test jest"
+    },
+    "files": [
+        "src",
+        "types"
+    ],
+    "license": "ISC",
+    "devDependencies": {
+        "@jest/globals": "^29.7.0",
+        "@tsconfig/node20": "^20.1.2",
+        "@types/jest": "^29.5.12",
+        "@types/node": "^20.11.30",
+        "@types/supertest": "^6.0.2",
+        "jest": "^29.7.0",
+        "supertest": "^6.3.4",
+        "ts-jest": "^29.1.2",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.4.3"
+    }
+}
