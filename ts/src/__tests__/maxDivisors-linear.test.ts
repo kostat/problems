@@ -26,8 +26,23 @@ describe("find max divisors", () => {
     console.info(`${result}:${maxDivisors}`);
   });
 
+  it("success 5000000", () => {
+    const [result, maxDivisors] = findMaxDivisors(5000000);
+    console.info(`${result}:${maxDivisors}`);
+  });
+
+  it("success 8000000", () => {
+    const [result, maxDivisors] = findMaxDivisors(8000000);
+    console.info(`${result}:${maxDivisors}`);
+  });
+
   it("success 10000000", () => {
     const [result, maxDivisors] = findMaxDivisors(10000000);
     console.info(`${result}:${maxDivisors}`);
   });
+
+  // it("success 100000000", () => {
+  //   const [result, maxDivisors] = findMaxDivisors(100000000);
+  //   console.info(`${result}:${maxDivisors}`);
+  // });
 });

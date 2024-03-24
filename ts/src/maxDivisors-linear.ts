@@ -1,4 +1,4 @@
-type Data = number[][];
+type Data = number[];
 
 function fillPrimeStats(prime: number, data: Data) {
   const cache: number[] = [];
@@ -6,18 +6,13 @@ function fillPrimeStats(prime: number, data: Data) {
     const n = i * prime;
     if (n > data.length) break;
 
-    const m = (data[n - 1] ??= []);
     var value = 1;
     if (i % prime === 0) {
       value += cache[i / prime - 1]!;
     }
     cache.push(value);
-    m.push(value);
+    data[n - 1] = (data[n - 1] ?? 1) * (value + 1);
   }
-}
-
-function computeNumOfDivisors(primeStats: number[]) {
-  return primeStats.reduce((a, b) => a * (b + 1), 1);
 }
 
 export function findMaxDivisors(max: number) {
@@ -26,11 +21,10 @@ export function findMaxDivisors(max: number) {
   var maxDivisors = 1;
 
   for (var n = 2; n <= max; n++) {
-    var stats = data[n - 1];
-    if (!stats) {
+    const numDivisors = data[n - 1];
+    if (!numDivisors) {
       fillPrimeStats(n, data);
     } else {
-      var numDivisors = computeNumOfDivisors(stats);
       if (numDivisors > maxDivisors) {
         result = n;
         maxDivisors = numDivisors;

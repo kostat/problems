@@ -1,9 +1,10 @@
-import { primeFactors } from "../primeFactors";
+import { primeFactors, computeNumOfDivisors } from "../primeFactors";
 
 describe("find prime divisors", () => {
   it("success 1260", () => {
     const result = primeFactors(1260);
-    //   console.info(`${result}`);
+    const numDiv = computeNumOfDivisors(result.values());
+
     expect(result).toEqual(
       new Map([
         [2, 2],
@@ -11,6 +12,26 @@ describe("find prime divisors", () => {
         [5, 1],
         [7, 1],
       ])
+    ); 
+    expect(numDiv).toBe(36);
+  });
+
+  it("success 73513440", () => {
+    const result = primeFactors(73513440);
+    const numDiv = computeNumOfDivisors(result.values());
+
+    expect(result).toEqual(
+      new Map([
+        [2, 5],
+        [3, 3],
+        [5, 1],
+        [7, 1],
+        [11, 1],
+        [13, 1],
+        [17, 1],
+      ])
     );
+    expect(numDiv).toBe(768);
   });
 });
+

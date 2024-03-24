@@ -1,3 +1,7 @@
+export function computeNumOfDivisors(primeStats: IterableIterator<number>) {
+  return [...primeStats].reduce((a, b) => a * (b + 1), 1);
+}
+
 export function primeFactors(n: number) {
   var result = new Map<number, number>();
   var times = 0;
