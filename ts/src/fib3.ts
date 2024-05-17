@@ -31,17 +31,17 @@ function fib3(n: number): number {
   }*/
 
 export function* fib3_gen2(seed?: [number, number, number]) {
-  var [f1, f2, f3] = seed ?? [1, 0, 0];
+  var [f1, f2, f3] = seed ?? [0, 0, 1];
   for (;;) {
-    [f1, f2, f3] = [f1 + f2 + f3, f1, f2];
+    [f1, f2, f3] = [f2, f3, f1 + f2 + f3];
     yield f1;
   }
 }
 
 export function* fib2_gen2(seed?: [number, number]) {
-  var [f1, f2] = seed ?? [1, 0];
+  var [f1, f2] = seed ?? [0, 1];
   for (;;) {
-    [f1, f2] = [f1 + f2, f1];
+    [f1, f2] = [f2, f1 + f2];
     yield f1;
   }
 }

@@ -33,5 +33,20 @@ describe("find prime divisors", () => {
     );
     expect(numDiv).toBe(768);
   });
+
+  // test success for 100000000
+  it("success 100000000", () => {
+    const result = primeFactors(100000000);
+    const numDiv = computeNumOfDivisors(result.values());
+
+    expect(result).toEqual(
+      new Map([
+        [2, 8],
+        [5, 8],
+      ])
+    );
+    expect(numDiv).toBe(81);
+  });
+
 });
 
