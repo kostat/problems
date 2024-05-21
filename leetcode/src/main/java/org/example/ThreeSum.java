@@ -32,22 +32,28 @@ public class ThreeSum {
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
+        var iPrevVal = 0;
         for (int i = 0; i < nums.length - 2; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) continue; // skip same result
-            int j = i + 1, k = nums.length - 1;
-            while (j < k) {
-                if (nums[i] + nums[j] + nums[k] == 0) {
-                    result.add(Arrays.asList(nums[i], nums[j], nums[k]));
-                    while (j < k && nums[j] == nums[j + 1]) j++; // skip same result
-                    while (j < k && nums[k] == nums[k - 1]) k--; // skip same result
-                    j++;
-                    k--;
-                } else if (nums[i] + nums[j] + nums[k] < 0) {
-                    j++;
+            var iVal = nums[i];
+            if (iVal > 0) break; // if the first element is greater than zero, the sum will be greater than zero
+            if (i > 0 && iVal == iPrevVal) continue; // skip same result
+            
+            int l = i + 1, h = nums.length - 1;
+            while (l < h) {
+                int lVal = nums[l], hVal = nums[h];
+                var sum = iVal + lVal + hVal;
+                if (sum == 0) {
+                    result.add(Arrays.asList(iVal, lVal, hVal));
+                    while (l < h && lVal == nums[++l]);// skip same result
+                    while (l < h && hVal == nums[--h]);// skip same result
+                } else if (sum < 0) {
+                    l++;
                 } else {
-                    k--;
+                    h--;
                 }
             }
+            
+            iPrevVal = iVal;
         }
         return result;
     }
