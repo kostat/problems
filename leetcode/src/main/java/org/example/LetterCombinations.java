@@ -18,7 +18,7 @@ public class LetterCombinations {
 
         var result = new ArrayList<String>();
 
-        int digit = digits.charAt(index);
+        var digit = digits.charAt(index);
 
         var letters = switch (digit) {
             case '7' -> new char[]{'p', 'q', 'r', 's'};
