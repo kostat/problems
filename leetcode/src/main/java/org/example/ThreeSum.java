@@ -41,7 +41,7 @@ public class ThreeSum {
             int l = i + 1, h = nums.length - 1;
             while (l < h) {
                 int lVal = nums[l], hVal = nums[h];
-                var sum = iVal + lVal + hVal;
+                var sum = (long)iVal + lVal + hVal;
                 if (sum == 0) {
                     result.add(Arrays.asList(iVal, lVal, hVal));
                     while (l < h && lVal == nums[++l]);// skip same result
