@@ -24,8 +24,8 @@ public class MinPathCost {
 
         if (rows > 1) {
             cost = Integer.MAX_VALUE;
-            for (int c = 0; c < cols; c++) {
-                cost = Math.min(cost, dp[rows - 1][c]);
+            for (int c : dp[rows - 1]) {
+                cost = Math.min(cost, c);
             }
         }
 
