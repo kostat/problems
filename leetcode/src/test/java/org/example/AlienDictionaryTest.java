@@ -13,17 +13,17 @@ class AlienDictionaryTest {
 
     @Test
     void alienOrder_multipleWordsSameOrder() {
-        assertEquals("abcde", new AlienDictionary().alienOrder(new String[]{"abc", "bcd", "cde"}));
+        assertEquals("adebc", new AlienDictionary().alienOrder(new String[]{"abc", "bcd", "cde"}));
     }
 
     @Test
     void alienOrder_multipleWordsDifferentOrder() {
-        assertEquals("", new AlienDictionary().alienOrder(new String[]{"bac", "bca", "acb"}));
+        assertEquals("bac", new AlienDictionary().alienOrder(new String[]{"bac", "bca", "acb"}));
     }
 
     @Test
     void alienOrder_noCommonCharacters() {
-        assertEquals("abxcyz", new AlienDictionary().alienOrder(new String[]{"abc", "xyz"}));
+        assertEquals("abcyzx", new AlienDictionary().alienOrder(new String[]{"abc", "xyz"}));
     }
 
 //    @Test
@@ -48,6 +48,16 @@ class AlienDictionaryTest {
 
     @Test
     void alienOrder_order1() {
-        assertEquals("werft", new AlienDictionary().alienOrder(new String[]{"wrt", "wrf", "er", "ett", "rftt"}));
+        assertEquals("wertf", new AlienDictionary().alienOrder(new String[]{"wrt", "wrf", "er", "ett", "rftt"}));
+    }
+
+    @Test
+    void isAlienSorted_true() {
+        assertTrue(new AlienDictionary().isAlienSorted(new String[]{"hello", "leetcode"}, "hlabcdefgijkmnopqrstuvwxyz"));
+    }
+
+    @Test
+    void isAlienSorted_false() {
+        assertFalse(new AlienDictionary().isAlienSorted(new String[]{"word", "world", "row"}, "worldabcefghijkmnpqstuvxyz"));
     }
 }
